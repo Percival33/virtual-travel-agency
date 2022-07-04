@@ -55,7 +55,9 @@ const server = http.createServer((req, res) => {
   const { query, pathname } = url.parse(req.url, true);
   // Overview page
   if (pathname === '/' || pathname === '/overview') {
-    res.writeHead(200, { 'Content-type': 'text/html' });
+    res.writeHead(200, {
+      'Content-type': 'text/html',
+    });
 
     const cardsHtml = dataObj
       .map((el) => replaceTemplate(tempCard, el))
@@ -68,7 +70,9 @@ const server = http.createServer((req, res) => {
 
     // Product Page
   } else if (pathname === '/product') {
-    res.writeHead(200, { 'Content-type': 'text/html' });
+    res.writeHead(200, {
+      'Content-type': 'text/html',
+    });
     const product = dataObj[query.id];
     const output = replaceTemplate(tempProduct, product);
 
@@ -76,7 +80,9 @@ const server = http.createServer((req, res) => {
 
     // API
   } else if (pathname === '/api') {
-    res.writeHead(200, { 'Content-type': 'application/json' });
+    res.writeHead(200, {
+      'Content-type': 'application/json',
+    });
     res.end(data);
 
     // Not found
