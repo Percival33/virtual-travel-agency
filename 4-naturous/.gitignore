@@ -1,3 +1,4 @@
-dev-data
+dev-data/*
 public
 config.env
+!/dev-data/data/import-dev-data.js
