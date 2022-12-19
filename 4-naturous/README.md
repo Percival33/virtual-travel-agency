@@ -6,10 +6,15 @@ PORT=<port>
 USER=<user>
 DATABASE_PASSWORD=<db_password>
 DATABASE=<db_url>
+
+JWT_SECRET=<jwt_secret>
+JWT_EXPIRES_IN=<time>
 ```
 
 > remember to have user:`PASSWORD` in `DATABASE`
 > after host/`db_name`
+
+> JWT_SECRET should be at least 32 characters long
 
 ## To setup linter
 
