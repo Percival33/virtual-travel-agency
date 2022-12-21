@@ -1,6 +1,6 @@
 ## config.env
 
-```
+```bash
 NODE_ENV=development
 PORT=<port>
 USER=<user>
@@ -9,6 +9,12 @@ DATABASE=<db_url>
 
 JWT_SECRET=<jwt_secret>
 JWT_EXPIRES_IN=<time>
+
+EMAIL_USERNAME=<username>
+EMAIL_PASSWORD=<password>
+# in case of using not defined email service
+EMAIL_HOST=<host>
+EMAIL_PORT=<port>
 ```
 
 > remember to have user:`PASSWORD` in `DATABASE`
