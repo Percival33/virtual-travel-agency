@@ -3,7 +3,10 @@ const reviewController = require('../controllers/reviewController');
 const authController = require('../controllers/authController');
 
 // const { getAllTours, createTour, getTour, etc} = require('./../controllers/tourController');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
+
+// POST /tour/ad1233/reviews
+// GET /tour/ad1233/reviews
 
 router
   .route('/')
