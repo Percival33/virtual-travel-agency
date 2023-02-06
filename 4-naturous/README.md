@@ -9,6 +9,8 @@ DATABASE=<db_url>
 
 JWT_SECRET=<jwt_secret>
 JWT_EXPIRES_IN=<time>
+JWT_COOKIE_EXPIRES_IN=<time as a number>
+
 
 EMAIL_USERNAME=<username>
 EMAIL_PASSWORD=<password>
@@ -17,8 +19,12 @@ EMAIL_HOST=<host>
 EMAIL_PORT=<port>
 ```
 
-> remember to have user:`PASSWORD` in `DATABASE`
-> after host/`db_name`
+> remember to have user:`<PASSWORD>` in `DATABASE`
+> example:
+
+```
+mongodb+srv://user:<PASSWORD>@cluster/<DB_NAME>?retryWrites=true&w=majority
+```
 
 > JWT_SECRET should be at least 32 characters long
 
