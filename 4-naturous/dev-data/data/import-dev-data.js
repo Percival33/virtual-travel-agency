@@ -22,13 +22,19 @@ mongoose
   .then(() => console.log('DB connection succesful!'));
 
 //   READ JSON FILE
-const tours = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
+const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`, 'utf-8'));
+const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
+const reviews = JSON.parse(
+  fs.readFileSync(`${__dirname}/reviews.json`, 'utf-8')
+);
 
 //  IMPORT DATA INTO DB
 const importData = async () => {
   try {
     // await Tour.create(tours);
-    await User.create(tours);
+    await User.create(users, { validateBeforeSave: false });
+    await Tour.create(tours);
+    await Review.create(reviews);
 
     console.log('Data succesfully loaded');
   } catch (err) {
@@ -40,8 +46,10 @@ const importData = async () => {
 // DELETE ALL DATA FROM COLLECTION
 const deleteData = async () => {
   try {
+    await User.deleteMany();
     await Tour.deleteMany();
-    console.log('Deleted all tours');
+    await Review.deleteMany();
+    console.log('Deleted all data');
   } catch (err) {
     console.log(err);
   }
