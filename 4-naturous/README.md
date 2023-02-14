@@ -1,3 +1,7 @@
+## API Docs
+
+[api docs](https://documenter.getpostman.com/view/19887252/2s935vn19F)
+
 ## config.env
 
 ```bash
