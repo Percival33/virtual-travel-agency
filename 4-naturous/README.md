@@ -2,7 +2,7 @@
 
 [api docs](https://documenter.getpostman.com/view/19887252/2s935vn19F)
 
-## config.env
+## Deployment `config.env`
 
 ```bash
 NODE_ENV=development
@@ -32,7 +32,7 @@ mongodb+srv://user:<PASSWORD>@cluster/<DB_NAME>?retryWrites=true&w=majority
 
 > JWT_SECRET should be at least 32 characters long
 
-## To setup linter
+## Local development - linter
 
 ```
 npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react --save-dev
