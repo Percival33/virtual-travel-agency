@@ -1,5 +1,6 @@
 dev-data/*
 public
+!public/js/*
 config.env
 !/dev-data/data
 dev-data/data/*
