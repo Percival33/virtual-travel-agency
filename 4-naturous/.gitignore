@@ -1,7 +1,9 @@
 dev-data/*
-public
-!public/js/*
 config.env
 !/dev-data/data
 dev-data/data/*
 !/dev-data/data/import-dev-data.js
+.cache
+public/css
+public/img
+public/*.html
