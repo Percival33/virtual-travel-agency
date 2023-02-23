@@ -12,7 +12,7 @@ const loginForm = document.querySelector('.form');
 // DELEGATIONS
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
-  displayMap(location);
+  displayMap(locations);
 }
 
 if (loginForm) {
