@@ -23,7 +23,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
     .status(200)
     .set(
       'Content-Security-Policy',
-      'worker-src blob: ;     child-src blob: ;      img-src data: blob: ; connect-src https://*.tiles.mapbox.com https://api.mapbox.com https://events.mapbox.com ;'
+      "default-src 'self' https://*.mapbox.com ;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src https://cdnjs.cloudflare.com https://api.mapbox.com 'self' blob: ;script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests;"
     )
     .render('tour', {
       title: `${tour.name} tour`,

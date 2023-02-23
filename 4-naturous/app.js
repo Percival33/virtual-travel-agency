@@ -30,7 +30,7 @@ app.use(
     contentSecurityPolicy: {
       useDefaults: true,
       directives: {
-        'script-src': ["'self'", 'https://cdnjs.cloudflare.com/'],
+        'script-src': ['self', 'https://cdnjs.cloudflare.com/'],
       },
     },
   })
