@@ -12091,7 +12091,13 @@ var logout = /*#__PURE__*/function () {
           });
         case 3:
           res = _context2.sent;
-          if (res.data.status === 'success') location.reload(true);
+          if (res.data.status === 'success') {
+            // location.assign('/');
+            (0, _alerts.showAlert)('success', 'Logged out successfully!');
+            window.setTimeout(function () {
+              location.assign('/');
+            }, 1500);
+          }
           _context2.next = 11;
           break;
         case 7:
