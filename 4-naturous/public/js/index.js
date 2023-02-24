@@ -1,13 +1,14 @@
 /* eslint-disable */
 import '@babel/polyfill';
 import { displayMap } from './mapbox';
-import { login } from './login';
+import { login, logout } from './login';
 
 console.log('Hello from parcel');
 
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form');
+const logOutBtn = document.querySelector('.nav__el--logout');
 
 // DELEGATIONS
 if (mapBox) {
@@ -23,3 +24,5 @@ if (loginForm) {
     login(email.value, password.value);
   });
 }
+
+if (logOutBtn) logOutBtn.addEventListener('click', logout);
