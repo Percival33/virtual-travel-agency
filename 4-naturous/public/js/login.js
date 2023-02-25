@@ -14,7 +14,7 @@ export const login = async (email, password) => {
     });
 
     if (res.data.status === 'success') {
-      showAlert('success', 'Logged in successfully!');
+      showAlert('success', 'Logged in successfully! Redirecting...');
       window.setTimeout(() => {
         location.assign('/');
       }, 1500);
@@ -32,7 +32,7 @@ export const logout = async () => {
     });
     if (res.data.status === 'success') {
       // location.assign('/');
-      showAlert('success', 'Logged out successfully!');
+      showAlert('success', 'Logged out successfully! Redirecting...');
       window.setTimeout(() => {
         location.assign('/');
       }, 1500);
