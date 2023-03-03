@@ -21,6 +21,7 @@ EMAIL_PASSWORD=<password>
 # in case of using not defined email service
 EMAIL_HOST=<host>
 EMAIL_PORT=<port>
+EMAIL_FROM=<email addres>
 ```
 
 > remember to have user:`<PASSWORD>` in `DATABASE`
