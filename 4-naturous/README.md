@@ -5,24 +5,12 @@
 ## Deployment `config.env`
 
 ```bash
-NODE_ENV=development
-PORT=<port>
-USER=<user>
-DATABASE_PASSWORD=<db_password>
-DATABASE=<db_url>
-
-JWT_SECRET=<jwt_secret>
-JWT_EXPIRES_IN=<time>
-JWT_COOKIE_EXPIRES_IN=<time as a number>
-
-
-EMAIL_USERNAME=<username>
-EMAIL_PASSWORD=<password>
-# in case of using not defined email service
-EMAIL_HOST=<host>
-EMAIL_PORT=<port>
-EMAIL_FROM=<email addres>
+cp config.template.env config.env
 ```
+
+and fill in your credentials
+
+#### Remember!
 
 > remember to have user:`<PASSWORD>` in `DATABASE`
 > example:
