@@ -1,7 +1,9 @@
 const Tour = require('../models/tourModel');
 const User = require('../models/userModel');
+const Booking = require('../models/bookingModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
+const factory = require('./handleFactory');
 
 exports.getOverview = catchAsync(async (req, res, next) => {
   // 1) Get tour data from collection
@@ -50,8 +52,32 @@ exports.getAccount = (req, res) => {
   });
 };
 
+exports.getMyTours = catchAsync(async (req, res, next) => {
+  // 1) Find all bookings
+  const bookings = await Booking.find({ user: req.user.id });
+
+  // 2) Find tours with the returned IDs
+  const tourIDs = bookings.map((el) => el.tour);
+  const tours = await Tour.find({ _id: { $in: tourIDs } });
+
+  const bookingsWithTours = await Booking.find({ user: req.user.id }).populate(
+    'tours'
+  );
+
+  res.status(200).render('overview', {
+    title: 'My Tours',
+    tours,
+  });
+});
+
+exports.getAllBookings = factory.getAll(Booking);
+exports.getOneBooking = factory.getOne(Booking);
+exports.createBooking = factory.createOne(Booking);
+exports.deleteBooking = factory.deleteOne(Booking);
+exports.updateBooking = factory.updateOne(Booking);
+
 exports.updateUserData = catchAsync(async (req, res, next) => {
-  console.log('UPDATING USER', req.body);
+  // console.log('UPDATING USER', req.body);
   const updatedUser = await User.findByIdAndUpdate(
     req.user.id,
     {
