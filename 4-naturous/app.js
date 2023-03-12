@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -25,15 +26,54 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // 1) MIDDLEWARES
+app.use(cors());
+// Access-Controll-Allow-Origin *
+// app.use(
+//   cors({
+//     origin: <url></url>,
+//   })
+// );
+
+app.options('*', cors());
+
 // Serving static files
+// Implement CORS
 app.use(express.static(path.join(__dirname, 'public')));
+
 // Set security HTTP headers
 // app.use(helmet());
 
 // FIXME: setup propper CSP after development stage
+// HELMET configuration for Content Security Policy (CSP)
+const defaultSrcUrls = ['https://js.stripe.com/'];
+
+const scriptSrcUrls = ['https://api.mapbox.com', 'https://js.stripe.com/v3/'];
+
+const styleSrcUrls = [
+  'https://api.mapbox.com',
+  'https://fonts.googleapis.com/',
+];
+
+const connectSrcUrls = [
+  'https://api.mapbox.com',
+  'https://*.tiles.mapbox.com',
+  'https://events.mapbox.com',
+  'https://*.stripe.com',
+];
+
+const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
+
 app.use(
-  helmet({
-    contentSecurityPolicy: false,
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'", ...defaultSrcUrls],
+      scriptSrc: ["'self'", ...scriptSrcUrls],
+      connectSrc: ["'self'", ...connectSrcUrls],
+      fontSrc: ["'self'", ...fontSrcUrls],
+      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+      imgSrc: ["'self'", 'blob:', 'data:', 'https:'],
+      workerSrc: ["'self'", 'blob:'],
+    },
   })
 );
 
