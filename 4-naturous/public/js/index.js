@@ -73,6 +73,5 @@ if (bookBtn) {
 
 const alertMessage = document.querySelector('body').dataset.alert;
 if (alertMessage) {
-  console.log('pokaz alert');
   showAlert('success', alertMessage, 20);
 }
