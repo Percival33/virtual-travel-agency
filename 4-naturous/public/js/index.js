@@ -73,5 +73,6 @@ if (bookBtn) {
 
 const alertMessage = document.querySelector('body').dataset.alert;
 if (alertMessage) {
+  window.history.replaceState({}, document.title, '/');
   showAlert('success', alertMessage, 20);
 }
