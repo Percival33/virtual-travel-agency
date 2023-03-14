@@ -4,9 +4,16 @@ A virtual travel agency offers online booking for tours and activities, with int
 
 Built with modern technologies: node.js, express, mongoDB.
 
+**You can try live application [here](https://natours.bieda.it/)**
+Try these test user:
+
+| login:    | laura@example.com |
+| --------- | ----------------- |
+| password: | test1234          |
+
 ## API Docs
 
-[api docs](https://documenter.getpostman.com/view/19887252/2s935vn19F)
+[Postman API docs](https://documenter.getpostman.com/view/19887252/2s935vn19F)
 
 ## Deployment `config.env`
 
