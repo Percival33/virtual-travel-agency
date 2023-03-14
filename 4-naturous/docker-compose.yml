@@ -3,8 +3,8 @@ services:
   web:
     build:
       context: .
-    # volumes:
-    #   - '.:/app'
+    volumes:
+      - './public:/app/public'
     ports:
       - '6969:3000'
     environment:
