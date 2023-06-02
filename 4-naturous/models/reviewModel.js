@@ -51,6 +51,11 @@ reviewSchema.statics.calcAverageRatings = async function (tourId) {
     },
   ]);
   // console.log(stats);
+  if (!stats) {
+    console.error(`No stats found for tourId ${tourId}`);
+    return;
+  }
+
   if (stats.length > 0) {
     await Tour.findByIdAndUpdate(tourId, {
       ratingsQuantity: stats[0].nRatings,
