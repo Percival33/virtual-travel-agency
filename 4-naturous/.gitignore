@@ -1,5 +1,7 @@
 dev-data/*
 config.env
+config.dev.env
+.idea
 !/dev-data/data
 dev-data/data/*
 !/dev-data/data/import-dev-data.js
