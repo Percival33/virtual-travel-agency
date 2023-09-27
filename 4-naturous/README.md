@@ -26,6 +26,7 @@ and fill in your credentials
 #### Remember!
 
 > remember to have user:`<PASSWORD>` in `DATABASE`
+> remember to have dbname:`<DB_NAME>` in `DATABASE`!!!
 > example:
 
 ```
